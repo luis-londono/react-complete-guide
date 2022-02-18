@@ -1,10 +1,7 @@
-import ExpenseItem from "./components/ExpenseItem";
+import React from "react";
+import Expenses from "./components/Expenses";
 
-// todo: need to add expenses file
-
-
-function App() {
-
+const App = () => {
   const expenses = [
     {
       id: 'e1',
@@ -27,13 +24,12 @@ function App() {
     },
   ];
 
+
   return (
     <>
     <div>
       <h2>Let's get started!</h2>
-      {expenses && expenses.map(x=> 
-        <ExpenseItem id={x.id} title={x.title} amount={x.amount} date={x.date} />
-      )}
+      <Expenses items={expenses} />
     </div>
     </>
   );

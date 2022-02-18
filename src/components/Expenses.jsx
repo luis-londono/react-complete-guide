@@ -1,13 +1,16 @@
 import React from 'react';
-import Card from './Card';
+import Card from '../UI/Card';
 import ExpenseItem from './ExpenseItem';
 
 const Expenses = (props) => {
+
   return (
     <>
       <Card className="expenses">
-        <ExpenseItem />
-
+        {props.items && props.items.map(x =>
+          <ExpenseItem id={x.id} title={x.title} amount={x.amount} date={x.date} />
+        )
+        }
       </Card>
     </>
   );
