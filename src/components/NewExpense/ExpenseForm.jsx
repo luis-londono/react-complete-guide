@@ -6,47 +6,16 @@ const ExpenseForm = (props) => {
   const [enteredDate, setEnteredDate] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
 
-  // const [userInput, setUserInput] = useState({
-  //   enteredTitle: "",
-  //   enteredDate: "",
-  //   enteredAmount: ""
-  // }
-  // )
-
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
-
-    // setUserInput({
-    //   ...userInput,
-    //   enteredTitle: event.target.value
-    // })
-
-    // schedule state updates, react will gaurentee state snapshot will always be the latest snapshot
-    // keeping all states in mind. Always, if state update depends on previous state use this below!
-    // setUserInput((prevState) => {
-    //   return {
-    //     ...prevState, enteredTitle: event.target.value
-    //   };
-    // });
-
   }
 
   const amountChangeHandler = (event) => {
     setEnteredAmount(event.target.value);
-
-    // setUserInput({
-    //   ...userInput,
-    //   enteredAmount: event.target.value
-    // })
   }
 
   const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
-
-    // setUserInput({
-    //   ...userInput,
-    //   enteredDate: event.target.value
-    // })
   }
 
   // when submit is clicked, the page is refreshed
@@ -55,11 +24,9 @@ const ExpenseForm = (props) => {
 
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
-      date: new Date(enteredDate)
-    }
-
-    // console.log(expenseData);
+      amount: +enteredAmount,
+      date: new Date(enteredDate),
+    };
 
     props.onSaveExpenseData(expenseData);
     setEnteredTitle('');
